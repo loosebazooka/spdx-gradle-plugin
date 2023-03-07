@@ -202,7 +202,7 @@ public class SpdxDocumentBuilder {
       String sha1 =
           com.google.common.io.Files.asByteSource(dependencyFile).hash(Hashing.sha1()).toString();
       spdxPkgBuilder.setPackageVerificationCode(
-          doc.createPackageVerificationCode(sha1, Collections.emptyList()));
+          doc.createPackageVerificationCode("sha1:" + sha1, Collections.emptyList()));
 
       return Optional.of(spdxPkgBuilder.build());
     }
